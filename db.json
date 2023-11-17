@@ -1,0 +1,85 @@
+{
+  "players": [
+    {
+      "name": "ranger",
+      "balance": 9000,
+      "tickets": [
+        {
+          "numbers": [
+            13,
+            20,
+            16,
+            33,
+            15
+          ],
+          "isPlayerTicket": true,
+          "id": 1
+        },
+        {
+          "numbers": [
+            22,
+            27,
+            11,
+            24,
+            31
+          ],
+          "isPlayerTicket": true,
+          "id": 2
+        }
+      ],
+      "totalWinnings": 0,
+      "id": 100872
+    },
+    {
+      "name": "Sifduijgdfg",
+      "balance": 10000,
+      "tickets": [
+        {
+          "numbers": [
+            13,
+            20,
+            16,
+            33,
+            15
+          ],
+          "isPlayerTicket": true,
+          "id": 1
+        }
+      ],
+      "totalWinnings": 0,
+      "id": 6055
+    },
+    {
+      "name": "Kornel",
+      "balance": 10000,
+      "tickets": [],
+      "totalWinnings": 0,
+      "id": 31622
+    },
+    {
+      "name": "Pista",
+      "balance": 10000,
+      "tickets": [],
+      "totalWinnings": 0,
+      "id": 510193
+    },
+    {
+      "name": "jeno",
+      "balance": 10000,
+      "tickets": [],
+      "totalWinnings": 0,
+      "id": 892943
+    },
+    {
+      "name": "shramek",
+      "balance": 10000,
+      "tickets": [],
+      "totalWinnings": 0,
+      "id": 722076
+    }
+  ],
+  "operator": {
+    "balance": 0,
+    "submittedTickets": []
+  }
+}

@@ -1,0 +1,38 @@
+.Player {
+    border: 2px solid #333;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .Player h2 {
+    color: #333;
+  }
+  
+  .Player p {
+    margin: 10px 0;
+  }
+  
+  .Player button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .Player button:hover {
+    background-color: #45a049;
+  }
+  
+  .Player ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .Player li {
+    margin: 5px 0;
+  }
