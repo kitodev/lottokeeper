@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LotteryGame from './Components/Lotto';
 import OperatorDashboard from './Components/OperatorDashboard';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>

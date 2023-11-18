@@ -1,9 +1,32 @@
-// Player.jsx
+
 
 import React from 'react';
 import './css/Player.css'; // Import the CSS file
 
-const Player = ({ player,  updateName, numTicketsToBuy, setNumTicketsToBuy, buyTickets,checkPlayerExists }) => {
+interface PlayerState {
+  name: string;
+  balance: number;
+  totalWinnings: number;
+  tickets: Ticket[];
+}
+
+interface Ticket {
+  id: number;
+  numbers: number[];
+  isPlayerTicket: boolean;
+}
+
+interface PlayerProps {
+  player: PlayerState;
+  numTicketsToBuy: number;
+  setNumTicketsToBuy: React.Dispatch<React.SetStateAction<number>>;
+  buyTickets: () => void;
+  resetGame: () => void;
+  updateName: (newName: string) => void;
+  checkPlayerExists: () => Promise<void>;
+}
+
+const Player: React.FC<PlayerProps> = ({ player, numTicketsToBuy, setNumTicketsToBuy, buyTickets, resetGame, updateName, checkPlayerExists }) => {
   return (
     <div className="player-container">
       <h2>Player</h2>

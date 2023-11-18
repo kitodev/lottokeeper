@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import './css/OperatorDashboard.css'; // Import your CSS file
+import './css/OperatorDashboard.css';
+import { Link } from 'react-router-dom';
 
-const OperatorDashboard = () => {
-  const [players, setPlayers] = useState([]);
+interface Ticket {
+  id: number;
+  numbers: number[];
+}
+
+interface Player {
+  id: number;
+  name: string;
+  balance: number;
+  totalWinnings: number;
+  tickets: Ticket[];
+}
+
+const OperatorDashboard: React.FC = () => {
+  const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,7 +26,7 @@ const OperatorDashboard = () => {
   const fetchPlayersData = async () => {
     try {
       const response = await fetch('http://localhost:3001/players');
-      const playersData = await response.json();
+      const playersData: Player[] = await response.json();
       setPlayers(playersData || []);
     } catch (error) {
       console.error('Error fetching player data:', error);
@@ -28,6 +42,9 @@ const OperatorDashboard = () => {
   return (
     <div className="operator-dashboard">
       <h1>Operator Dashboard</h1>
+      <Link to="/">
+          <button>Go to Home Page</button>
+      </Link>
       <table>
         <thead>
           <tr>
