@@ -25,7 +25,7 @@ const OperatorDashboard: React.FC = () => {
 
   const fetchPlayersData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/players');
+      const response = await fetch('https://lottoleeper-kitodev.vercel.app/players');
       const playersData: Player[] = await response.json();
       setPlayers(playersData || []);
     } catch (error) {
