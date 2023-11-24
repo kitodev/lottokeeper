@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './css/OperatorDashboard.css';
-import { Link } from 'react-router-dom';
-
-interface Ticket {
-  id: number;
-  numbers: number[];
-}
+import './css/OperatorDashboard.css'; // Import your CSS file
+import { environment } from "./environment";
 
 interface Player {
   id: number;
@@ -15,9 +10,14 @@ interface Player {
   tickets: Ticket[];
 }
 
+interface Ticket {
+  id: number;
+  numbers: number[];
+}
+
 const OperatorDashboard: React.FC = () => {
   const [players, setPlayers] = useState<Player[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetchPlayersData();
@@ -25,7 +25,7 @@ const OperatorDashboard: React.FC = () => {
 
   const fetchPlayersData = async () => {
     try {
-      const response = await fetch('https://lottoleeper-kitodev.vercel.app/players');
+      const response = await fetch(`${environment.api}/players`);
       const playersData: Player[] = await response.json();
       setPlayers(playersData || []);
     } catch (error) {
@@ -42,9 +42,6 @@ const OperatorDashboard: React.FC = () => {
   return (
     <div className="operator-dashboard">
       <h1>Operator Dashboard</h1>
-      <Link to="/">
-          <button>Go to Home Page</button>
-      </Link>
       <table>
         <thead>
           <tr>

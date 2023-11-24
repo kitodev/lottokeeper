@@ -1,13 +1,25 @@
-import React from 'react';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App';
+/* eslint-disable no-unused-vars */
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+// import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
 
-const root = createRoot(document.getElementById('app')!);
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <React.Suspense fallback="loading">
+                <App />
+            </React.Suspense>
+        </BrowserRouter>
+    </React.StrictMode>
 );
+
+reportWebVitals();
