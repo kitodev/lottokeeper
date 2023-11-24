@@ -3,7 +3,7 @@ import Operator from './Operator';
 import Player from './Player';
 import { Link } from 'react-router-dom'
 import './css/LotteryGame.css';
-import { environment } from "./environment";
+import { api } from "./Api";
 
 // Define types for player and operator
 interface PlayerState {
@@ -64,7 +64,7 @@ const LotteryGame: React.FC = () => {
   const fetchData = async () => {
     try {
       const playerName = player.name;
-      const playersResponse = await fetch(`${environment.api}/players`);
+      const playersResponse = await fetch(`${api}/players`);
       const playersData = await playersResponse.json();
 
       const currentPlayer = playersData.players.find((p: PlayerState) => p.name === playerName);
@@ -82,7 +82,7 @@ const LotteryGame: React.FC = () => {
 
         setPlayer(newPlayer);
 
-        await fetch(`${environment.api}/players`, {
+        await fetch(`${api}/players`, {
           method: 'POST',
           body: JSON.stringify(newPlayer),
           headers: {
@@ -91,7 +91,7 @@ const LotteryGame: React.FC = () => {
         });
       }
 
-      const operatorResponse = await fetch(`${environment.api}/operator`);
+      const operatorResponse = await fetch(`${api}/operator`);
       const operatorData = await operatorResponse.json();
 
       setOperator(operatorData);
@@ -112,7 +112,7 @@ const LotteryGame: React.FC = () => {
     try {
       if (player.name !== "") {
         if (player?.id) {
-          await fetch(`${environment.api}/players/${player.id}`, {
+          await fetch(`${api}/players/${player.id}`, {
             method: 'PUT',
             body: JSON.stringify(player),
             headers: {
@@ -121,7 +121,7 @@ const LotteryGame: React.FC = () => {
           });
         }
 
-        await fetch(`${environment.api}/operator`, {
+        await fetch(`${api}/operator`, {
           method: 'PUT',
           body: JSON.stringify(operator),
           headers: {
@@ -145,7 +145,7 @@ const LotteryGame: React.FC = () => {
 
   const checkPlayerExists = async () => {
     try {
-      const response = await fetch(`${environment.api}/players?name=${player.name}`);
+      const response = await fetch(`${api}/players?name=${player.name}`);
       const playerData = await response.json();
 
       if (playerData.length > 0) {
@@ -161,7 +161,7 @@ const LotteryGame: React.FC = () => {
 
         setPlayer(newPlayer);
 
-        await fetch(`${environment.api}/players`, {
+        await fetch(`${api}/players`, {
           method: 'POST',
           body: JSON.stringify(newPlayer),
           headers: {

@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/Operator.css'; // Import the CSS file
 
+// Define types for the props
 interface OperatorProps {
   operator: {
     balance: number;

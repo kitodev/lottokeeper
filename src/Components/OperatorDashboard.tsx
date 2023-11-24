@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './css/OperatorDashboard.css'; // Import your CSS file
-import { environment } from "./environment";
-import { Link } from 'react-router-dom';
+import { api } from "./Api";
 
 interface Player {
   id: number;
@@ -26,7 +25,7 @@ const OperatorDashboard: React.FC = () => {
 
   const fetchPlayersData = async () => {
     try {
-      const response = await fetch(`${environment.api}/players`);
+      const response = await fetch(`${api}/players`);
       const playersData: Player[] = await response.json();
       setPlayers(playersData || []);
     } catch (error) {
@@ -43,11 +42,6 @@ const OperatorDashboard: React.FC = () => {
   return (
     <div className="operator-dashboard">
       <h1>Operator Dashboard</h1>
-      <div>
-        <Link to="/">
-          <button>Go to Home Page</button>
-        </Link>
-      </div>
       <table>
         <thead>
           <tr>
