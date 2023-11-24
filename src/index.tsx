@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-// import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
 
