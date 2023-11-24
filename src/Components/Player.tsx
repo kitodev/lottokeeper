@@ -1,14 +1,5 @@
-
-
 import React from 'react';
 import './css/Player.css'; // Import the CSS file
-
-interface PlayerState {
-  name: string;
-  balance: number;
-  totalWinnings: number;
-  tickets: Ticket[];
-}
 
 interface Ticket {
   id: number;
@@ -17,27 +8,31 @@ interface Ticket {
 }
 
 interface PlayerProps {
-  player: PlayerState;
-  numTicketsToBuy: number;
-  setNumTicketsToBuy: React.Dispatch<React.SetStateAction<number>>;
-  buyTickets: () => void;
-  resetGame: () => void;
+  player: {
+    name: string;
+    balance: number;
+    totalWinnings: number;
+    tickets: Ticket[];
+  };
   updateName: (newName: string) => void;
-  checkPlayerExists: () => Promise<void>;
+  numTicketsToBuy: number;
+  setNumTicketsToBuy: (numTickets: number) => void;
+  buyTickets: () => void;
+  checkPlayerExists: () => void;
 }
 
-const Player: React.FC<PlayerProps> = ({ player, numTicketsToBuy, setNumTicketsToBuy, buyTickets, resetGame, updateName, checkPlayerExists }) => {
+const Player: React.FC<PlayerProps> = ({ player, updateName, numTicketsToBuy, setNumTicketsToBuy, buyTickets, checkPlayerExists }) => {
   return (
     <div className="player-container">
       <h2>Player</h2>
       <p>Name: {player.name}</p>
-    <label>
-      Name:
-      <input type="text" value={player.name} onChange={(e) => updateName(e.target.value)} />
-    </label>
-    <label>
-      <button onClick={checkPlayerExists}>Enter</button>
-    </label>
+      <label>
+        Name:
+        <input type="text" value={player.name} onChange={(e) => updateName(e.target.value)} />
+      </label>
+      <label>
+        <button onClick={checkPlayerExists}>Enter</button>
+      </label>
       <p>Balance: {player.balance} coins</p>
       <p>Winning Amount: {player.totalWinnings} coins</p>
       <label>
