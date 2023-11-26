@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 // import * as serviceWorkerRegistration from "./serviceWorkerRegistration";

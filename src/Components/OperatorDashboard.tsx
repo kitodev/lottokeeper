@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './css/OperatorDashboard.css'; // Import your CSS file
+import './sass/OperatorDashboard.scss';
 import { api } from "./Api";
+import { Link } from 'react-router-dom';
 
 interface Player {
   id: number;
@@ -42,6 +43,11 @@ const OperatorDashboard: React.FC = () => {
   return (
     <div className="operator-dashboard">
       <h1>Operator Dashboard</h1>
+      <div>
+        <Link to="/">
+          <button>Go To Home Page</button>
+        </Link>
+      </div>
       <table>
         <thead>
           <tr>

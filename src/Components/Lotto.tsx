@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Operator from './Operator';
 import Player from './Player';
 import { Link } from 'react-router-dom'
-import './css/LotteryGame.css';
+import './sass/LotteryGame.scss';
 import { api } from "./Api";
 
-// Define types for player and operator
 interface PlayerState {
   name: string;
   balance: number;

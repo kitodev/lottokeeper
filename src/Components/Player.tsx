@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Player.css'; // Import the CSS file
+import './sass/Player.scss';
 
 interface Ticket {
   id: number;
@@ -24,26 +24,30 @@ interface PlayerProps {
 const Player: React.FC<PlayerProps> = ({ player, updateName, numTicketsToBuy, setNumTicketsToBuy, buyTickets, checkPlayerExists }) => {
   return (
     <div className="player-container">
-      <h2>Player</h2>
-      <p>Name: {player.name}</p>
-      <label>
-        Name:
-        <input type="text" value={player.name} onChange={(e) => updateName(e.target.value)} />
-      </label>
-      <label>
-        <button onClick={checkPlayerExists}>Enter</button>
-      </label>
-      <p>Balance: {player.balance} coins</p>
-      <p>Winning Amount: {player.totalWinnings} coins</p>
-      <label>
-        Number of Tickets to Buy:
-        <input
-          type="number"
-          value={numTicketsToBuy}
-          onChange={(e) => setNumTicketsToBuy(Number(e.target.value))}
-        />
-      </label>
-      <button onClick={buyTickets}>Buy Tickets</button>
+      <div className="player-input">
+        <h2>Player</h2>
+        <p>Name: {player.name}</p>
+        <label>
+          Name:
+          <input type="text" value={player.name} onChange={(e) => updateName(e.target.value)} />
+        </label>
+        <label>
+          <button onClick={checkPlayerExists}>Enter</button>
+        </label>
+      </div>
+      <div className="balance">
+          <p>Balance: {player.balance} coins</p>
+          <p>Winning Amount: {player.totalWinnings} coins</p>
+        <label>
+          Number of Tickets to Buy:
+          <input
+            type="number"
+            value={numTicketsToBuy}
+            onChange={(e) => setNumTicketsToBuy(Number(e.target.value))}
+          />
+        </label>
+        <button onClick={buyTickets}>Buy Tickets</button>
+      </div>
       <h3>Your Tickets</h3>
       <table>
         <thead>

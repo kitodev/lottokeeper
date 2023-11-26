@@ -1,7 +1,6 @@
 import React from 'react';
-import './css/Operator.css'; // Import the CSS file
+import './sass/Operator.scss';
 
-// Define types for the props
 interface OperatorProps {
   operator: {
     balance: number;
@@ -21,9 +20,9 @@ const Operator: React.FC<OperatorProps> = ({ operator, startDraw, drawnNumbers, 
       <h2>Operator</h2>
       <p>Balance: {operator.balance} coins</p>
       <button onClick={startDraw}>Start Draw</button>
-      {drawnNumbers.length > 0 && <p>Drawn Numbers: {drawnNumbers.join(', ')}</p>}
+      {drawnNumbers.length > 0 && <p className='drawn-numbers'>Drawn Numbers: {drawnNumbers.join(', ')}</p>}
       {roundResults && (
-        <div>
+        <div className='round-results'>
           <h3>Round Results</h3>
           <p>5 Hits: {roundResults[5]}</p>
           <p>4 Hits: {roundResults[4]}</p>
