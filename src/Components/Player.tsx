@@ -28,7 +28,7 @@ const Player: React.FC<PlayerProps> = ({ player, updateName, numTicketsToBuy, se
         <h2>Player</h2>
         <p>Name: {player.name}</p>
         <label>
-          Name:
+          Name: <br />
           <input type="text" value={player.name} onChange={(e) => updateName(e.target.value)} />
         </label>
         <label>
@@ -36,10 +36,11 @@ const Player: React.FC<PlayerProps> = ({ player, updateName, numTicketsToBuy, se
         </label>
       </div>
       <div className="balance">
+          <h2>Balance</h2>
           <p>Balance: {player.balance} coins</p>
           <p>Winning Amount: {player.totalWinnings} coins</p>
         <label>
-          Number of Tickets to Buy:
+          Number of Tickets to Buy: <br />
           <input
             type="number"
             value={numTicketsToBuy}
@@ -48,25 +49,29 @@ const Player: React.FC<PlayerProps> = ({ player, updateName, numTicketsToBuy, se
         </label>
         <button onClick={buyTickets}>Buy Tickets</button>
       </div>
-      <h3>Your Tickets</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Numbers</th>
-            <th>Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {player.tickets.map((ticket) => (
-            <tr key={ticket.id}>
-              <td>{ticket.id}</td>
-              <td>{ticket.numbers.join(', ')}</td>
-              <td>{ticket.isPlayerTicket ? 'Player' : 'Generated'}</td>
+      { player.tickets.length > 0 &&
+      <div className="tickets">
+        <h3>Your Tickets</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Numbers</th>
+              <th>Type</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {player.tickets.map((ticket) => (
+              <tr key={ticket.id}>
+                <td>{ticket.id}</td>
+                <td>{ticket.numbers.join(', ')}</td>
+                <td>{ticket.isPlayerTicket ? 'Player' : 'Generated'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    }
     </div>
   );
 };

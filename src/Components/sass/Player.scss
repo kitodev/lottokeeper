@@ -4,17 +4,30 @@ $background-color_2: #f2f2f2;
 
 .player-container {
   .balance {
-    width: 50%;
-    
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    @media (max-width: 420px) {
+      padding: 20px 0px;
+      align-items: center;
+    }
   }
   border: 2px solid #ccc;
   padding: 20px;
   margin: 10px;
+  justify-content: space-between;
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
   border-radius: 8px;
   background-color: #f0f0f0;
+
+  @media (max-width: 420px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 }
 
 .player-container {
@@ -32,6 +45,7 @@ $background-color_2: #f2f2f2;
 .player-container {
   label {
     display: block;
+    text-align: left;
     font-weight: 600;
     margin-bottom: 10px;
   }
@@ -42,7 +56,7 @@ $background-color_2: #f2f2f2;
     border-radius: 12px;
     border: 1px solid #ccc;
     padding: 10px;
-    margin-left: 15px;
+    //margin-left: 15px;
     font-size: 16px;
   }
 }
@@ -50,10 +64,17 @@ $background-color_2: #f2f2f2;
 .player-container {
   
   .player-input {
-    flex-direction: column;
     display: flex;
     align-items: start;
     width: 50%;
+    flex-direction: column;
+
+    @media (max-width: 420px) {
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
   }
   button {
     padding: 8px 16px;
@@ -75,6 +96,9 @@ $background-color_2: #f2f2f2;
 }
 
 .player-container {
+  .tickets {
+    width: 100%;
+  }
 	table {
 		width: 100%;
     border-collapse: collapse;

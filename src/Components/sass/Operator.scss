@@ -7,8 +7,15 @@ $background-color_3: #45a049;
 	border: 2px solid #ccc;
 	padding: 20px;
 	margin: 10px;
+	align-items: center;
+	flex-direction: column;
+    display: flex;
 	border-radius: 8px;
 	background-color: $background-color_1;
+
+	@media (max-width: 420px) {
+		align-items: center;
+	}
 	h2 { color: #333;
 	button {
 		padding: 8px 16px;
@@ -36,12 +43,8 @@ $background-color_3: #45a049;
 }
 
 .operator-container {
-		p {
-			margin: 5px 0;
-		}
+	p {
+		margin: 5px 0;
 	}
-
-	flex-direction: column;
-    display: flex;
-    align-items: start;
+}
 }
